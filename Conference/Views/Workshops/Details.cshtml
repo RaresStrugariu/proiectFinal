@@ -1,0 +1,152 @@
+﻿@model Conference.Domain.Entities.Workshops
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+    
+
+    <div class="">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-xs-12 col-md-6 offset-md-2 space-big style-details-left">
+                    <h1 class="title make-purple make-bolder">
+                        @Model.Name
+                    </h1>
+                    <div class="text">
+                        <p>
+                            @Model.Description
+                        </p>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-md-3 offset-md-1  text-center text-white" style="background-color:#442359;">
+                    <p style="text-align:left;">Workshop</p>
+                    <div class="img-responsive img-fluid col-md-4 col-sm-12">
+                        <img src="@string.Format("~/images/speakersProfile/" +@Model.Speaker.FirstName + "-" + @Model.Speaker.LastName + ".png")" asp-append-version="true" class="card-img-top" />
+                    </div>
+                    <h2 class="text-big text-left">
+                        <a href="@string.Format("/Speakers/Details/" + Model.SpeakerId)" class="no-a-style">
+                            @Model.Speaker.Name
+                        </a>
+                    </h2>
+                    <div class="to-left">
+
+                        @if (Model.Speaker.Twitter != null)
+                        {
+
+                            <a target="_blank" class="link d-inline" href="@Model.Speaker.Twitter">
+                                <i class="fa fa-twitter"></i>
+                            </a>
+
+                        }
+                        @if (Model.Speaker.Website != null)
+                        {
+
+                            <a target="_blank" class="link d-inline" href="@Model.Speaker.Website">
+                                <i class="fa fa-facebook"></i>
+                            </a>
+
+                        }
+                        @if (Model.Speaker.LinkedIn != null)
+                        {
+
+                            <a target="_blank" class="link d-inline" href="@Model.Speaker.LinkedIn">
+                                <i class="fa fa-linkedin-square"></i>
+                            </a>
+
+                        }
+                        <p >Date time</p>
+                        <p class="make-bolder make-bigger">@Model.Requirements</p>
+                        <p >Location</p>
+                        <p class="make-bolder make-bigger">@Model.Prerequisites</p>
+                        <p >Places Available</p>
+                        <p class="make-bolder make-bigger">@Model.PlacesAvailable</p>
+
+                    </div>
+                    
+                    <div class="align-bottom">
+                        <a target="_blank" href="https://www.eventbrite.com" class="btn btn-info  justify-content-center w-100 text-uppercase font-weight-bolder style-button">Register</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@*<h1>Details</h1>
+
+<div>
+    <h4>Workshops</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Prerequisites)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Prerequisites)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Requirements)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Requirements)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.PlacesAvailable)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.PlacesAvailable)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Edition)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Edition)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.RegistrationLink)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.RegistrationLink)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Speaker)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Speaker.Description)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>*@

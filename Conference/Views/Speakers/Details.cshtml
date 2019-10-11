@@ -1,0 +1,129 @@
+﻿@model Conference.Domain.Entities.Speakers
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<div class="row " style="min-height:450px;width:100%;margin:0;" >
+    <div class="col-lg-9 text-center" style="padding:80px;padding-bottom:50px;">
+        <div id="speaker-details-cotainer" class="row align-items-center" >
+            <div class="col-sm-6" style="text-align:right;" id="speaker-details-pics">
+                @if (Model.LastName == "Baleanu")
+                {
+                    <img src="~/images/speakersProfile/Codrin-Baleanu.png" asp-append-version="true" />
+
+                }
+
+                else if (Model.Name == "Irina Scurtu")
+                {
+                    
+                    <img src="~/images/speakersProfile/Irina-Scurtu.png" asp-append-version="true"/>
+                   
+                }
+
+                else if (Model.Name == "Victor Chircu")
+                {
+                    
+                    <img src="~/images/speakersProfile/Victor-Chircu.png" asp-append-version="true" style="width:254px;height:254px;"/>
+                  
+                }
+                else if (Model.Name == "Sorin Damian")
+                {
+                    
+                    <img src="~/images/speakersProfile/Sorin-Damian.png" asp-append-version="true"/>
+                   
+                }
+                else if (Model.Name == "Mihaela Ghidersa")
+                {
+                    
+                    <img src="~/images/speakersProfile/Mihaela-Ghidersa.png" asp-append-version="true"/>
+                   
+                }
+                else if (Model.Name == "Radu Iscu")
+                {
+                    
+                    <img src="~/images/speakersProfile/Radu-Iscu.png" asp-append-version="true"/>
+                   
+                }
+                else if (Model.Name == "Andrei Mustata")
+                {
+                    
+                    <img src="~/images/speakersProfile/Andrei-Mustata.png" asp-append-version="true"/>
+                   
+                }
+                else if (Model.Name == "Florin Olariu")
+                {
+                    
+                    <img src="~/images/speakersProfile/Florin-Olariu.png" asp-append-version="true"/>
+                   
+                }
+
+                else if (Model.LastName == "Zaharia")
+                {
+                    
+                    <img src="~/images/speakersProfile/Octav-Zaharia.png" asp-append-version="true"/>
+                  
+                }
+
+                else if (Model.Name == "Andrei Scutariu")
+                {
+                    
+                    <img src="~/images/speakersProfile/Andrei-Scutariu.png" asp-append-version="true"/>
+                   
+
+                }
+            </div>
+            
+            <div class="col-6 speaker-details-description">
+                <h1>@Model.Name</h1>
+                <p class="make-blue">@Model.Position</p>
+                <p class="make-blue">@Model.CompanyName</p>
+                @if (Model.Twitter != null)
+                {
+                    <a href="@Model.Twitter" class="nav-item nav-link fa fa-twitter" style="font-size:25px;text-decoration:none;color:lightblue;"></a>
+                }
+                @if (Model.Facebook != null)
+                {
+                    <a href="@Model.Facebook" class="nav-item nav-link fa fa-facebook" style="font-size:25px;text-decoration:none;color:lightblue;"></a>
+                }
+
+                <a href="@Model.LinkedIn" class="nav-item nav-link fa fa-linkedin-square" style="font-size:25px;text-decoration:none;color:lightblue;padding-left:0;"></a>
+                <p class="make-purple">@Model.Description</p>
+            </div>
+            
+        </div>
+    </div>
+    <div class="col-lg-3 speaker-details-talks" style="min-width:200px;">
+        
+         <h1 class="text-white ">Talks/Workshops</h1>
+         <h1 class="font-weight-bold">
+             @foreach (var item in Model.GetAllTalks())
+             {
+                 <a class="text-white" style="text-decoration:none;" href="/Talks/Details/@item.Id">
+                     @item.Name;
+
+                 </a>
+             }
+             @foreach (var item in Model.GetAllWorkshops())
+             {
+                 <a class="text-white" style="text-decoration:none;" href="/Workshops/Details/@item.Id">
+                     @item.Name;
+
+                 </a>
+             }
+         </h1>
+         
+        
+    </div>
+</div>
+
+
+
+
+@*<div>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    <a asp-action="Index">Back to List</a>
+</div>*@
